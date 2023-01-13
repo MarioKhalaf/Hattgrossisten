@@ -8,4 +8,6 @@ public interface ProductInterface {
 
     String name();
 
+    String toString();
+
 }

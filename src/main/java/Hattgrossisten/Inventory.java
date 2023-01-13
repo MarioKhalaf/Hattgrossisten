@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Inventory {
 
-    static List<String> productsList = new ArrayList<String>();
+    static List<Product> productsList = new ArrayList<Product>();
 
     public void quantity() {
         System.out.println("Shows the inventory of all the products");
