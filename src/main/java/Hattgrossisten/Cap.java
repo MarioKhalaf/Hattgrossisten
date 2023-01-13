@@ -7,4 +7,10 @@ public class Cap extends Product {
 
     }
 
+    @Override
+    public String toString() {
+        return "name: " + name + ", price: " + price + ", size: " + size + ", grade: " + grade + ", category: "
+                + category;
+    }
+
 }

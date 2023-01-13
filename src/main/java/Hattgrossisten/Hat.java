@@ -8,7 +8,8 @@ public class Hat extends Product {
     }
 
     @Override
-    public String name() {
-        return super.name();
+    public String toString() {
+        return "name: " + name + ", price: " + price + ", size: " + size + ", grade: " + grade + ", category: "
+                + category;
     }
 }
