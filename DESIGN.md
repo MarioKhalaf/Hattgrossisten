@@ -1,7 +1,7 @@
 # Design choice
 
 ## Verbs and nouns
-![](tavla.png)
+![](images/tavla.png)
 <br>
 ## Diagram
-![](diagram.png)
+![](images/diagram.png)
