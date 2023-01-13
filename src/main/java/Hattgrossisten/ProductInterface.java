@@ -1,6 +1,6 @@
 package Hattgrossisten;
 
-public interface ProductsInterface {
+public interface ProductInterface {
 
     int price();
 
