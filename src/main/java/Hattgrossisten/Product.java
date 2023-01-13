@@ -1,6 +1,6 @@
 package Hattgrossisten;
 
-public class Products implements ProductsInterface {
+public class Product implements ProductInterface {
 
     public String name;
     public int price;
@@ -8,7 +8,7 @@ public class Products implements ProductsInterface {
     public int grade;
     public String category;
 
-    Products(String name, int price, String size, int grade, String category) {
+    Product(String name, int price, String size, int grade, String category) {
         this.name = name;
         this.price = price;
         this.size = size;
