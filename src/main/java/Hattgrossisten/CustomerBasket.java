@@ -10,9 +10,6 @@ public class CustomerBasket {
     List<String> payMethods = new ArrayList<String>();
     List<String> shippingMethods = new ArrayList<String>();
 
-    public static void main(String[] args) {
-    }
-
     public void pay() {
         System.out.println("Makes the customer pay");
     }

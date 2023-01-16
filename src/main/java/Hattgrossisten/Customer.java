@@ -1,6 +1,5 @@
 package Hattgrossisten;
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
@@ -49,34 +48,8 @@ public class Customer {
     public void displayCustomers(List<Customer> customerList) {
         System.out.println("\n*** Hattgrossistens customer database ***\n");
         for (Customer c : customerList) {
-            System.out.println("ID " + c.id + " : " + c.name + " " + c.phoneNumber + " " + c.address);
+            System.out.println("ID " + c.id + 1 + " : " + c.name + " " + c.phoneNumber + " " + c.address);
             id++;
-        }
-    }
-
-    public static void main(String[] args) {
-        List<Customer> customerList = new ArrayList<>();
-        while (true) {
-            System.out.println("1. Register a customer.");
-            System.out.println("2. Display current customers.");
-
-            Scanner input = new Scanner(System.in);
-            String choice = input.nextLine();
-            Customer c = new Customer();
-
-            switch (choice) {
-                case "1": {
-                    c.registerCustomer(customerList);
-                    break;
-                }
-                case "2": {
-                    c.displayCustomers(customerList);
-                    break;
-                }
-                default:
-                    break;
-            }
-
         }
     }
 }
