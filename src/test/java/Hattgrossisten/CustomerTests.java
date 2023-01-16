@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerTest {
+public class CustomerTests {
     @Test
     public void registerCustomerTest() {
         // Test that a customer's information is correctly added to the customer list
