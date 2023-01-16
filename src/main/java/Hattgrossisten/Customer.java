@@ -49,4 +49,8 @@ Customer(String name, String email, String phoneNumber, String address, int id) 
             id++;
         }
     }
+
+    public String toString() {
+        return "Name: " + name + "Email: " + email + "Tele: " + phoneNumber + "Address: " + address + "ID: " + id;
+    }
 }
