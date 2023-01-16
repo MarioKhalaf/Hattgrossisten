@@ -5,20 +5,16 @@ import java.util.List;
 
 public class CustomerBasket {
 
-    public int price;
+    public int price = 0;
     List<String> products = new ArrayList<String>();
     List<String> payMethods = new ArrayList<String>();
     List<String> shippingMethods = new ArrayList<String>();
 
-    // CustomerBasket(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer price) {
-    //     this.products = products;
-    //     this.payMethods = payMethods;
-    //     this.shippingMethods = shippingMethods;
-    //     this.price = price;
-    // }
-
-    CustomerBasket(){
-
+    CustomerBasket(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer price) {
+        this.products = products;
+        this.payMethods = payMethods;
+        this.shippingMethods = shippingMethods;
+        this.price = price;
     }
 
     public static void main(String[] args) {
