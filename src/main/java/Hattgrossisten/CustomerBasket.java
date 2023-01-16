@@ -5,13 +5,23 @@ import java.util.List;
 
 public class CustomerBasket {
 
-    public int price;
+    public int price = 0;
     List<String> products = new ArrayList<String>();
     List<String> payMethods = new ArrayList<String>();
     List<String> shippingMethods = new ArrayList<String>();
 
+
     public void pay() {
         System.out.println("Makes the customer pay");
+    CustomerBasket(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer price) {
+        this.products = products;
+        this.payMethods = payMethods;
+        this.shippingMethods = shippingMethods;
+        this.price = price;
+    }
+
+    public static void main(String[] args) {
+
     }
 
     public String makeOrder(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer x, Integer price)
