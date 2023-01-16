@@ -14,6 +14,7 @@ public class CustomerBasketTests {
     List<String> shippingMethod = new ArrayList<>();
     CustomerBasket cb = new CustomerBasket();
 
+
     @Test
     public void shouldReturnOrderInfo() {
 
@@ -24,7 +25,7 @@ public class CustomerBasketTests {
         products.add("Test");
         payMethod.add("Test");
         shippingMethod.add("Test"); 
-        String newlist = cb.makeOrder(products, payMethod, shippingMethod, 0, 1000);
+        String newlist = cb.makeOrder(products, payMethod, shippingMethod, 0, 0, 0, 1000);
         assertEquals(expOutput, newlist);
 
     }
@@ -39,7 +40,7 @@ public class CustomerBasketTests {
         products.add("");
         payMethod.add("");
         shippingMethod.add(""); // List content for testing use only
-        String order = cb.makeOrder(products, payMethod, shippingMethod, 1, 1000);
+        String order = cb.makeOrder(products, payMethod, shippingMethod, 1, 0, 0, 1000);
         assertEquals(expOutput, order);
 
     }
@@ -55,7 +56,7 @@ public class CustomerBasketTests {
         products.add("");
         payMethod.add("");
         shippingMethod.add("");
-        String order = cb.makeOrder(products, payMethod, shippingMethod, 0, 1000);
+        String order = cb.makeOrder(products, payMethod, shippingMethod, 0, 0, 0, 1000);
         assertNotSame(expOutput, order);
     }
 
@@ -69,7 +70,7 @@ public class CustomerBasketTests {
         String expOutput = ("The order does not exist.");
         products.add("");
         payMethod.add("");
-        String order = cb.makeOrder(products, payMethod, shippingMethod, 0, 1000);
+        String order = cb.makeOrder(products, payMethod, shippingMethod, 0, 0, 0, 1000);
         assertEquals(expOutput, order);
     }
 
