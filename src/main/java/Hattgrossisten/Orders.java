@@ -10,10 +10,9 @@ public class Orders {
     public int orderId;
     public List<Product> orderProducts = new ArrayList<>();
 
-    Orders(Customer customerInfo, int orderId, List<Product> orderProducts) {
+    Orders(Customer customerInfo, List<Product> orderProducts) {
         this.customerInfo = customerInfo;
-        this.orderId = orderId;                 //Call OrderHistory.genOrderId() in argument
-        this.orderProducts = orderProducts;
+        this.orderProducts = orderProducts;             //This should be passed from CustomerBasket
         setOrderID();
     }
 
@@ -21,9 +20,15 @@ public class Orders {
         this.orderId = OrderHistory.genOrderId();
     }
 
-    public void acceptOrder(List<Product> basketProductList, HashMap<String, Integer> storeInventory) {
-        for (Product p : basketProductList){
-            storeInventory.put(p.getName(), storeInventory.get(p.getName()) - 1);
+    public void acceptOrder(HashMap<String, Integer> storeInventory) {
+        for (Product p : this.orderProducts){
+            int tempQuant = storeInventory.get(p.getName());
+            if(tempQuant > 0){
+                storeInventory.put(p.getName(), storeInventory.get(p.getName()) - 1);
+            }
+            else {
+                System.out.printf("%S is out of stock.", p.getName());
+            }
         }
     //Not done yet
     }

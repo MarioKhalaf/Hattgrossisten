@@ -10,10 +10,7 @@ public class Customer {
     public String address;
     public int id;
 
-    public Customer() {
-    }
-
-    public Customer(String name, String email, String phoneNumber, String address, int id) {
+Customer(String name, String email, String phoneNumber, String address, int id) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -51,5 +48,9 @@ public class Customer {
             System.out.println("ID " + c.id + 1 + " : " + c.name + " " + c.phoneNumber + " " + c.address);
             id++;
         }
+    }
+
+    public String toString() {
+        return "Name: " + name + "Email: " + email + "Tele: " + phoneNumber + "Address: " + address + "ID: " + id;
     }
 }
