@@ -13,14 +13,13 @@ public class Product implements ProductInterface {
     public String category;
     public List<Integer> gradeList = new ArrayList<Integer>();
 
-    Product(String name, int price, String size, int grade, String category, List<Integer> gradeList) {
-        this.gradeList = gradeList;
+    Product(String name, int price, String size, int grade, String category) {
         this.name = name;
         this.price = price;
         this.size = size;
         this.grade = grade;
         this.category = category;
-
+        setGrade(grade);
     }
 
     @Override
