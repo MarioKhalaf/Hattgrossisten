@@ -1,6 +1,7 @@
 package Hattgrossisten;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class HatTests {
@@ -30,12 +31,37 @@ public class HatTests {
     @Test
     public void shouldNotReferToTheSameObject() {
         Hat h = new Hat(1, "Red hat", 100, "M", 3, 6);
-        assertNotSame(h, "name: blue hat, price: 100, size: xs, grade: 4, category: Summer");
+        assertNotSame("name: blue hat, price: 100, size: xs, grade: 4, category: Summer", h);
     }
 
     @Test
     public void shouldNotThrow() {
         Hat h = new Hat(1, "Red hat", 100, "M", 3, 5);
         assertDoesNotThrow(() -> h);
+    }
+
+    @Test
+    public void shouldShowTheCorrectSizeOfList() {
+        Hat hat = new Hat();
+        List<Hat> hatList = hat.addHats();
+        assertTrue(hatList.size() == 5);
+    }
+
+    @Test
+    public void shouldShowTheIncorrectSizeOfList() {
+        Hat hat = new Hat();
+        List<Hat> hatList = hat.addHats();
+        assertFalse(hatList.size() == 10);
+    }
+
+    @Test
+    public void shouldGetValueFromFirstIndexInList() {
+        Hat hat = new Hat();
+        assertEquals(1, hat.addHats().get(0).id);
+        assertEquals("Black Hat ", hat.addHats().get(0).name);
+        assertEquals(50, hat.addHats().get(0).price);
+        assertEquals("M", hat.addHats().get(0).size);
+        assertEquals(3, hat.addHats().get(0).grade);
+        assertEquals(1, hat.addHats().get(0).quantity);
     }
 }

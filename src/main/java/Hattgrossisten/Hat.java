@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hat extends Product {
-  
+
     public Hat(int id, String name, int price, String size, int grade, int quantity) {
         super(id, name, price, size, grade, quantity);
 
