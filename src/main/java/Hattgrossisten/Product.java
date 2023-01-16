@@ -19,6 +19,7 @@ public class Product implements ProductInterface {
         this.size = size;
         this.grade = grade;
         this.quantity = quantity;
+        setGrade(grade);
     }
 
     @Override

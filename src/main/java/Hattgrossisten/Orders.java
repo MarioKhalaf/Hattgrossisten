@@ -1,18 +1,42 @@
 package Hattgrossisten;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Orders {
 
-    List<String> customerInfo = new ArrayList<String>();
-    public int orderID;
+    public Customer customerInfo;
+    public int orderId;
+    public List<Product> orderProducts = new ArrayList<>();
 
-    public void sendOrder() {
-        System.out.println("Sends order to customer");
+    Orders(Customer customerInfo, int orderId, List<Product> orderProducts) {
+        this.customerInfo = customerInfo;
+        this.orderId = orderId;                 //Call OrderHistory.genOrderId() in argument
+        this.orderProducts = orderProducts;
+        setOrderID();
     }
 
-    public void decreseInventory() {
-        // Method that decreses the inventory
+    private void setOrderID() {
+        this.orderId = OrderHistory.genOrderId();
+    }
+
+    public void acceptOrder(List<Product> basketProductList, HashMap<String, Integer> storeInventory) {
+        for (Product p : basketProductList){
+            storeInventory.put(p.getName(), storeInventory.get(p.getName()) - 1);
+        }
+    //Not done yet
+    }
+
+    public Customer getCustomerinfo() {
+        return customerInfo;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public List<Product> getOrderproducts() {
+        return orderProducts;
     }
 }
