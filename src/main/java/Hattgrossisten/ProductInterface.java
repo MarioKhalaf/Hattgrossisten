@@ -1,12 +1,22 @@
 package Hattgrossisten;
 
+import java.util.List;
+
 public interface ProductInterface {
 
-    int price();
+    void setName(String nameInput);
 
-    void size();
+    String getName();
 
-    String name();
+    void setPrice(int priceInput);
+
+    int getPrice();
+
+    int setGrade(int gradeInput);
+
+    int getGrade();
+
+    double calcListAverage(List<Integer> inputList);
 
     String toString();
 
