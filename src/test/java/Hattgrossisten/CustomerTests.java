@@ -3,73 +3,49 @@ package Hattgrossisten;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-
-import static org.hamcrest.Matchers.*;
-
-import org.junit.Test;
-import static org.junit.Assert.*;
-import java.time.LocalDate;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerTest {
-    private Customer[] customers = {
-        new Customer("Raffi", "Avakian", "Sweden", LocalDate.of(1988, 6, 11), new Order[] {new Order(LocalDate.of(2022,1,1),100)}, "raffi.avakian@example.com"),
-        new Customer("Sven", "Svensson", "Sweden", LocalDate.of(2003, 2, 28),new Order[] {}, "sven.svensson@example.com"),
-        new Customer("Babbe", "Babbesson", "Denmark", LocalDate.of(1990, 5, 15), new Order[] {new Order(LocalDate.of(2022,1,1),200)}, "babbe.babbesson@example.com")
-    };
-
     @Test
-    public void testValidCountryOfOrigin() {
-        //This test checks if the number of customers with a valid country of origin is 2
-        int validCustomers = 0;
-        for (Customer customer : customers) {
-            if (customer.getCountryOfOrigin().equals("Sweden")) {
-                validCustomers++;
-            }
-        }
-        assertEquals(2, validCustomers);
+    public void registerCustomerTest() {
+        // Test that a customer's information is correctly added to the customer list
+        // when they register and the ID is incremented correctly.
+        List<Customer> customerList = new ArrayList<>();
+        Customer customer = new Customer("Raffi Avakian", "raffiavakian@example.com", "018-402-707", "13 Gottsunda", 0);
+        customer.registerCustomer(customerList);
+
+        assertEquals(1, customerList.size());
+        assertEquals(customer.name, customerList.get(0).name);
+        assertEquals(customer.email, customerList.get(0).email);
+        assertEquals(customer.phoneNumber, customerList.get(0).phoneNumber);
+        assertEquals(customer.address, customerList.get(0).address);
+        assertEquals(customer.id, customerList.get(0).id);
     }
 
     @Test
-    public void testAgeRestriction() {
-        //This test checks if the number of customers who are at least 18 years old is 2
-        int validCustomers = 0;
-        for (Customer customer : customers) {
-            Period age = Period.between(customer.getDOB(), LocalDate.now());
-            if (age.getYears() >= 18) {
-                validCustomers++;
-            }
-        }
-        assertEquals(2, validCustomers);
+    public void toStringTest() {
+        // Test that the toString method returns the correct string format for a customer
+        Customer customer = new Customer("Raffi Avakian", "raffiavakian@example.com", "018-402-707", "13 Gottsunda", 0);
+        String expected = "Name: Raffi AvakianEmail: raffiavakian@example.comTele: 018-402-707Address: 13 GottsundaID: 0";
+        assertEquals(expected, customer.toString());
     }
 
     @Test
-    public void testOrderHistory() {
-        //This test checks if the number of customers who have ordered at least one time is 2
-        int validCustomers = 0;
-        for (Customer customer : customers) {
-            if (customer.getOrders().length > 0) {
-                validCustomers++;
-            }
-        }
-        assertEquals(2, validCustomers);
+    public void registerMultipleCustomersTest() {
+        // Test that the registerCustomer method can register multiple customers correctly
+        List<Customer> customerList = new ArrayList<>();
+        Customer customer1 = new Customer("Raffi Avakian", "raffiavakian@example.com", "018-402-707", "13 Gottsunda", 0);
+        Customer customer2 = new Customer("Sven Svensson", "svensvensson@example.com", "018-400-400", "7 Sunnersta", 0);
+        customer1.registerCustomer(customerList);
+        customer2.registerCustomer(customerList);
+
+        assertEquals(2, customerList.size());
+        assertEquals(customer1.name, customerList.get(0).name);
+        assertEquals(customer2.name, customerList.get(1).name);
+        assertEquals(1, customerList.get(1).id);
     }
 
-    @Test
-    public void testValidEmailAddress() {
-        //This test checks if the email address of all customers is valid
-        int validCustomers = 0;
-        for (Customer customer : customers) {
-            String email = customer.getEmail();
-            String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(email);
-            if (matcher.matches()) {
-                validCustomers++;
-            }
-        }
-        assertEquals(3, validCustomers);
-    }
 }
