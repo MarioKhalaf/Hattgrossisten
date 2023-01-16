@@ -39,5 +39,4 @@ public class CapTests {
         assertDoesNotThrow(() -> c);
     }
 
-
 }
