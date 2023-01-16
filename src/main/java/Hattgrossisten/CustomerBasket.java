@@ -10,6 +10,9 @@ public class CustomerBasket {
     List<String> payMethods = new ArrayList<String>();
     List<String> shippingMethods = new ArrayList<String>();
 
+
+    public void pay() {
+        System.out.println("Makes the customer pay");
     CustomerBasket(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer price) {
         this.products = products;
         this.payMethods = payMethods;
@@ -18,13 +21,14 @@ public class CustomerBasket {
     }
 
     public static void main(String[] args) {
+
     }
 
-    public String makeOrder(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer prod, Integer pay_m, Integer ship_m, Integer price)
+    public String makeOrder(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer x, Integer price)
             throws IndexOutOfBoundsException {
         List<String> order = new ArrayList<>();
         try {
-            order.add(products.get(prod));
+            order.add(products.get(produc));
             order.add(payMethods.get(pay_m));
             order.add(shippingMethods.get(ship_m));
             return "Products: " + order.get(0) + " | Order Total: " + price + " | Payment method: " + order.get(1) + " | Shipping method: " + order.get(2);
