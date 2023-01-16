@@ -12,7 +12,7 @@ public interface ProductInterface {
 
     int getPrice();
 
-    void setGrade(int gradeInput);
+    int setGrade(int gradeInput);
 
     int getGrade();
 
