@@ -43,7 +43,7 @@ public class Product implements ProductInterface {
     }
 
     @Override
-    public int setGrade(int gradeInput) { //adds argument to the list of all ratings and then gets and updates the average rating
+    public int setGrade(int gradeInput) { //adds argument to the list of all ratings and then gets
         if (gradeInput > 0 && gradeInput <= 5) {
             this.gradeList.add(gradeInput);
             this.grade = (int)Math.round(calcListAverage(gradeList));
