@@ -1,82 +1,42 @@
 package Hattgrossisten;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.lang.Math;
-
 public class Product implements ProductInterface {
 
+    public int id;
     public String name;
     public int price;
     public String size;
     public int grade;
-    public String category;
-    public List<Integer> gradeList = new ArrayList<Integer>();
+    public int quantity;
 
-    Product(String name, int price, String size, int grade, String category) {
+    Product() {
+    }
+
+    Product(int id, String name, int price, String size, int grade, int quantity) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.size = size;
         this.grade = grade;
-        this.category = category;
+        this.quantity = quantity;
         setGrade(grade);
     }
 
     @Override
-    public void setName(String nameInput) {
-        this.name = nameInput;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
-    @Override
-    public void setPrice(int newPrice) {
-        this.price = newPrice;
-    }
-
-    @Override
-    public int getPrice() {
+    public int price() {
         return this.price;
+
     }
 
     @Override
-    public void setGrade(int gradeInput) {
-        this.gradeList.add(gradeInput);
-        this.grade = (int)Math.round(calcListAverage(gradeList));
+    public void size() {
+        // generates the size
+
     }
 
     @Override
-    public int getGrade() {
-        return this.grade;
+    public String name() {
+        return this.name;
+
     }
-
-    @Override
-    public double calcListAverage(List<Integer> inputList) {
-        int sum = 0;
-        for (int i : inputList){
-            sum += i;
-        }
-        return inputList.size() > 0 ? sum / inputList.size() : 0;
-    }
-
-    // @Override
-    // public int price() {
-    //     return this.price;
-
-    // }
-
-    // @Override
-    // public void size() {
-    //     // generates the size
-
-    // }
-
-    // @Override
-    // public String name() {
-    //     return this.name;
-
-    // }
 }
