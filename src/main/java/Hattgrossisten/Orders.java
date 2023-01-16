@@ -1,6 +1,7 @@
 package Hattgrossisten;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Orders {
@@ -13,14 +14,18 @@ public class Orders {
         this.customerInfo = customerInfo;
         this.orderId = orderId;                 //Call OrderHistory.genOrderId() in argument
         this.orderProducts = orderProducts;
+        setOrderID();
     }
 
-    public void setOrderID() {
+    private void setOrderID() {
         this.orderId = OrderHistory.genOrderId();
     }
 
-    public void acceptOrder(){
-        //the order has been created, thus payment went through. get call remProduct in Inventory.
+    public void acceptOrder(List<Product> basketProductList, HashMap<String, Integer> storeInventory) {
+        for (Product p : basketProductList){
+            storeInventory.put(p.getName(), storeInventory.get(p.getName()) - 1);
+        }
+    //Not done yet
     }
 
     public Customer getCustomerinfo() {
@@ -33,12 +38,5 @@ public class Orders {
 
     public List<Product> getOrderproducts() {
         return orderProducts;
-    }
-    // public void sendOrder() {
-    //     System.out.println("Sends order to customer");
-    // }
-
-    // public void decreseInventory() {
-    //     // Method that decreses the inventory
     }
 }
