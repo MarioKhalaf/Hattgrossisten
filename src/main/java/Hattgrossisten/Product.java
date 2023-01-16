@@ -1,9 +1,5 @@
 package Hattgrossisten;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.lang.Math;
-
 public class Product implements ProductInterface {
 
     public int id;
@@ -15,6 +11,7 @@ public class Product implements ProductInterface {
 
     Product() {
     }
+
     Product(int id, String name, int price, String size, int grade, int quantity) {
         this.id = id;
         this.name = name;
@@ -23,22 +20,6 @@ public class Product implements ProductInterface {
         this.grade = grade;
         this.quantity = quantity;
     }
-
-    // @Override
-    // public void setPrice(int newPrice) {
-    //     this.price = newPrice;
-    // }
-
-    // @Override
-    // public int getPrice() {
-    //     return this.price;
-    // }
-
-
-    // @Override
-    // public int getGrade() {
-    //     return this.grade;
-    // }
 
     @Override
     public int price() {
