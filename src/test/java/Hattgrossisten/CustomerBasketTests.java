@@ -59,16 +59,35 @@ public class CustomerBasketTests {
     }
 
     @Test
-    public void shouldReturnErrorMsg() {
+    public void shouldReturnErrorMsgShipping() {
 
         // In this testcase, the method has intentionally not gotten a shipping method
         // added to the list of the order
         // and should in this case return the expected error message
         CustomerBasket cb = new CustomerBasket(products, payMethod, shippingMethod, 1000);
-        String expOutput = ("The order does not exist.");
+        String expOutput = ("You have not chosen a shipping method");
         products.add("");
         payMethod.add("");
         String order = cb.makeOrder(products, payMethod, shippingMethod, 0, 0, 0, cb.price);
+        assertEquals(expOutput, order);
+    }
+
+    @Test
+    public void ShouldReturnErrorMsgProduct() {
+        CustomerBasket cb = new CustomerBasket(products, payMethod, shippingMethod, 1000);
+        String expOutput = ("You have no products in your customerbasket.");
+        payMethod.add("");
+        shippingMethod.add("");
+        String order = cb.makeOrder(products, payMethod, shippingMethod, null, null, null, null);
+        assertEquals(expOutput, order);
+    }
+    @Test
+    public void ShouldReturnErrorMsgPayment() {
+        CustomerBasket cb = new CustomerBasket(products, payMethod, shippingMethod, 1000);
+        String expOutput = ("You have not chosen a payment option.");
+        products.add("");
+        shippingMethod.add("");
+        String order = cb.makeOrder(products, payMethod, shippingMethod, null, null, null, null);
         assertEquals(expOutput, order);
     }
 
@@ -120,17 +139,15 @@ public class CustomerBasketTests {
         assertNotEquals(expOutput, orderTotal);
 
     }
-
+    
     @Test
-    public void shouldReturnMissingShippingMethod() {
-
-        // This test tries to enter a shipping method that does not exist and should
-        // give an error message
+    public void shouldReturnErrormessageAllEmpty() {
+        
         CustomerBasket cb = new CustomerBasket(products, payMethod, shippingMethod, 1000);
-        payMethod.add("");
-        String expOutput = ("Shipping method does not exist");
-        String orderTotal = cb.pay(payMethod, 0, 0, 10);
-        assertNotEquals(expOutput, orderTotal);
+        String expOutput = ("You have not chosen neither a product, shipping method or payment method, please try again.");
+        String orderTotal = cb.makeOrder(products, payMethod, shippingMethod, 0, 0, 0, 59);
+        assertEquals(expOutput, orderTotal);
+    }
     }
 
-}
+
