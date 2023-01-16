@@ -23,6 +23,9 @@ public class Product implements ProductInterface {
         setGrade(grade);
     }
 
+    Product() {
+    }
+
     @Override
     public void setName(String nameInput) {
         this.name = nameInput;
@@ -44,13 +47,12 @@ public class Product implements ProductInterface {
     }
 
     @Override
-    public int setGrade(int gradeInput) { //adds argument to the list of all ratings and then gets
+    public int setGrade(int gradeInput) { // adds argument to the list of all ratings and then gets
         if (gradeInput > 0 && gradeInput <= 5) {
             this.gradeList.add(gradeInput);
-            this.grade = (int)Math.round(calcListAverage(gradeList));
+            this.grade = (int) Math.round(calcListAverage(gradeList));
             return this.grade;
-        }
-        else {
+        } else {
             System.out.println("Please insert a rating between 1-5.");
             return 0;
         }
@@ -64,7 +66,7 @@ public class Product implements ProductInterface {
     @Override
     public double calcListAverage(List<Integer> inputList) {
         int sum = 0;
-        for (int i : inputList){
+        for (int i : inputList) {
             sum += i;
         }
         return inputList.size() > 0 ? sum / inputList.size() : 0;
