@@ -25,7 +25,6 @@ public class Hat extends Product {
         Hat c = new Hat(3, "Blue Hat  ", 60, "S", 5, 7);
         Hat d = new Hat(4, "Yellow Hat", 90, "M", 4, 4);
         Hat e = new Hat(5, "Green Hat ", 75, "S", 3, 0);
-        System.out.println(a.grade + b.grade + c.grade + d.grade + e.grade);
         List<Hat> hatList = new ArrayList<>();
         hatList.add(a);
         hatList.add(b);
