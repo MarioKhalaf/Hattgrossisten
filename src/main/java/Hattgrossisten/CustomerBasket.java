@@ -5,25 +5,32 @@ import java.util.List;
 
 public class CustomerBasket {
 
-    public int price;
+    public int price = 0;
     List<String> products = new ArrayList<String>();
     List<String> payMethods = new ArrayList<String>();
     List<String> shippingMethods = new ArrayList<String>();
 
-    public static void main(String[] args) {
-    }
 
-    public String makeOrder(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer x, Integer price)
-            throws IndexOutOfBoundsException {
+    public void pay() {
+        System.out.println("Makes the customer pay");
+    CustomerBasket(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer price) {
         this.products = products;
         this.payMethods = payMethods;
         this.shippingMethods = shippingMethods;
         this.price = price;
+    }
+
+    public static void main(String[] args) {
+
+    }
+
+    public String makeOrder(List<String> products, List<String> payMethods, List<String> shippingMethods, Integer x, Integer price)
+            throws IndexOutOfBoundsException {
         List<String> order = new ArrayList<>();
         try {
-            order.add(products.get(x));
-            order.add(payMethods.get(x));
-            order.add(shippingMethods.get(x));
+            order.add(products.get(produc));
+            order.add(payMethods.get(pay_m));
+            order.add(shippingMethods.get(ship_m));
             return "Products: " + order.get(0) + " | Order Total: " + price + " | Payment method: " + order.get(1) + " | Shipping method: " + order.get(2);
         } catch (IndexOutOfBoundsException exception) {
         } return "The order does not exist.";    
