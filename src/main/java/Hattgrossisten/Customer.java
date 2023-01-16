@@ -1,4 +1,5 @@
 package Hattgrossisten;
+
 import java.util.Scanner;
 import java.util.List;
 
@@ -10,12 +11,16 @@ public class Customer {
     public String address;
     public int id;
 
-Customer(String name, String email, String phoneNumber, String address, int id) {
+    Customer(String name, String email, String phoneNumber, String address, int id) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.id = id;
+    }
+
+    Customer() {
+
     }
 
     public void registerCustomer(List<Customer> customerList) {
@@ -32,11 +37,11 @@ Customer(String name, String email, String phoneNumber, String address, int id) 
 
         System.out.print("Enter your address: ");
         address = input.nextLine();
-        
+
         if (customerList.size() > 0)
             id = customerList.get(customerList.size() - 1).id + 1;
         else
-            id=0;
+            id = 0;
         Customer newCustomer = new Customer(name, email, phoneNumber, address, id);
         customerList.add(newCustomer);
         System.out.println("Customer has been registered.");
